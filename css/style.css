@@ -79,7 +79,7 @@ input {
 }
 
 .white-bg {
-  background-color: #fff;
+  background-color: inherit;
   color: #029035;
   text-decoration: underline;
 }
