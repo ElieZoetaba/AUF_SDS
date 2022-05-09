@@ -22,7 +22,6 @@ img {
   margin: auto;
 }
 
-input:focus,
 input:hover,
 input {
   background-color: #f0f0f0;
@@ -44,27 +43,54 @@ input {
   color: #fff;
 }
 
-.btn {
-  margin: auto;
-  /* width: 20%; */
+.btn-container {
+  text-align: center;
+}
+
+.submit-container {
+  position: relative;
+  left: 0 !important;
 }
 
 .submit {
-  width: 20% !important;
+  width: 40% !important;
   margin-left: 7% !important;
   background-color: #029035 !important;
   border: 0 !important;
   color: #fff;
-  height:5% !important ;
+  height: 5% !important ;
 }
 .submit:hover {
-  width: 20% !important;
+  width: 40% !important;
   margin-left: 7% !important;
   background-color: #029035 !important;
   border: 0 !important;
 }
 
+.connexion {
+  width: 100% !important;
+  text-align: center;
+  display: block;
+}
 .inscription {
   width: 100% !important;
-  border: 1px solid;
+  display: none;
+  text-align: center;
+}
+
+.white-bg {
+  background-color: #fff;
+  color: #029035;
+  text-decoration: underline;
+}
+
+.greeny{
+    color: #029035;
+}
+
+
+@media screen  and ( max-width: 500px){
+    .admin-form{
+        width: 90%;
+    }
 }
