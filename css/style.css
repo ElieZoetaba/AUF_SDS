@@ -1,0 +1,70 @@
+body {
+  background-color: #f2f2f2;
+  margin-top: 5vh;
+  height: 95vh;
+}
+
+.admin-form {
+  background-color: #f0f0f0;
+  width: 40%;
+  margin: auto;
+  border-radius: 20px 20px 0 0;
+  border-top: 20px solid #029035;
+  border-bottom: 20px solid #fde704;
+  border-radius: 20px 20px 0 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+img {
+  height: 200px;
+  object-fit: contain;
+  margin: auto;
+}
+
+input:focus,
+input:hover,
+input {
+  background-color: #f0f0f0;
+  border-width: 0 0 2px 0 !important;
+  border-color: #029035;
+  margin: 2px;
+  width: 85% !important;
+  margin: auto;
+}
+
+::placeholder {
+  color: #029035;
+}
+
+.con-ins {
+  border: 0;
+  background-color: #029035;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.btn {
+  margin: auto;
+  /* width: 20%; */
+}
+
+.submit {
+  width: 20% !important;
+  margin-left: 7% !important;
+  background-color: #029035 !important;
+  border: 0 !important;
+  color: #fff;
+  height:5% !important ;
+}
+.submit:hover {
+  width: 20% !important;
+  margin-left: 7% !important;
+  background-color: #029035 !important;
+  border: 0 !important;
+}
+
+.inscription {
+  width: 100% !important;
+  border: 1px solid;
+}
