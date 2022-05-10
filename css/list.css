@@ -25,14 +25,13 @@ li {
   justify-content: space-between !important;
   align-items: center !important;
   flex-direction: row !important;
-  border: 1px solid #029035 !important;
 }
 li > div:first-child {
   width: 80%;
 }
 
 .modal-content > div {
-  background-color: yellow;
+  background-color: #FDE704;
   color: red;
   height: 80px;
   width: 200px;
@@ -46,11 +45,14 @@ li > div:first-child {
 }
 
 li:nth-child(odd) {
+  border: 1px solid #029035 !important;
   border-left: 15px solid #029035 !important;
   height: 100% !important;
 }
+
 li:nth-child(even) {
-  border-left: 15px solid yellow !important;
+  border: 1px solid #FDE704 !important;
+  border-left: 15px solid #FDE704 !important;
   height: 100% !important;
 }
 

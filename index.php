@@ -31,7 +31,7 @@
             <input type="password" name="password-repeat" id="password-repeat-inscription" placeholder="Repetez le mot de passe" class="mt-3 px-2">
 
             <div class="submit-container">
-                <input type="submit" value="S'inscrire" class="submit mt-3 mb-3  btn">
+                <input type="submit" value="S'inscrire" name="inscrire" class="submit mt-3 mb-3  btn">
             </div>
         </div>
 
@@ -40,7 +40,7 @@
             <input type="text" name="user" id="email-connexion" placeholder="Email ou nom d'utilisateur" class="mt-3 px-2">
             <input type="password" name="password" id="password-connexion" placeholder="Mot de passe " class="mt-3 px-2">
             <div class="submit-container">
-                <input type="submit" value="Se connecter" class="submit mt-3 mb-3 btn">
+                <input type="submit" value="Se connecter"  name="connecter"  class="submit mt-3 mb-3 btn">
             </div>
         </div>
     </form>

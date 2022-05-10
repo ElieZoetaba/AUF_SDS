@@ -51,7 +51,7 @@ input {
   position: relative;
   left: 0 !important;
 }
-
+.submit:hover,
 .submit {
   width: 40% !important;
   margin-left: 7% !important;
@@ -59,12 +59,6 @@ input {
   border: 0 !important;
   color: #fff;
   height: 5% !important ;
-}
-.submit:hover {
-  width: 40% !important;
-  margin-left: 7% !important;
-  background-color: #029035 !important;
-  border: 0 !important;
 }
 
 .connexion {

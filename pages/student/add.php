@@ -37,12 +37,13 @@
                 <input type="email" name="email" id="email-inscription" placeholder="Email" class="mt-3 px-2">
             </div>
             <label for="naissance">Date de naissance</label></br>
-            <input type="date" name="naissance" placeholder="Date de naissance" class="mt-3 px-2">
+            <input type="text" name="naissance"
+             onfocus="(this.type='date')" placeholder="Date de naissance" class="mt-3 px-2">
             <label for="telephone"> Telephone</label>
-            <input type="text" name="telephone" id="" placeholder="Telephone" class="mt-3 px-2"><br>
-            <label for="telephone"> Tuteur</label><br>
-            <input type="text" name="tuteur" id="" placeholder="Tuteur" class="mt-3 px-2">
-
+            <input type="text" name="telephone" id="" placeholder="Telephone" class="mt-3 px-2">
+            <div type="button" class="btn-container-tut my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <span class="con-ins  btn">Tuteur</span>
+            </div>
             <div class="submit-container">
                 <input type="submit" value="Enregistrer" class="submit mt-3 mb-3  btn">
             </div>
@@ -50,6 +51,36 @@
     </form>
 
     <div id="tri"></div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Associer un tuteur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="./" method="post" class="card container tut-form">
+                        <div class="inscription">
+                            <input type="text" name="nom" id="nom" placeholder="Nom & Prenom" class="mt-3 px-2">
+                            <input type="email" name="email" id="email" placeholder="Email" class="mt-3 px-2">
+                            <input type="text" name="tel" id="tel" placeholder="Telephone " class="mt-3 px-2">
+                            <input type="text" name="adresse" id="addresse" placeholder="Adresse" class="mt-3 px-2">
+
+                            <div class="submit-container">
+                                <input type="submit" value="Associer" class="submit mt-3 mb-3  btn">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
