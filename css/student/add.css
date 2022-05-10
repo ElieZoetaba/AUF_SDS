@@ -21,7 +21,9 @@ img {
 }
 
 input:hover,
-input {
+select:hover,
+input, 
+select {
   background-color: inherit;
   border-width: 1px !important;
   border-color: #029035;

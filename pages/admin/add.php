@@ -26,11 +26,6 @@ if (isset($_POST["inscrire"])) {
     }
 }
 
-
-
-
-
-
 if (isset($_POST["connecter"])) {
 
     $password = $_POST["password-connect"];
