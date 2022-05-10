@@ -11,10 +11,10 @@ include("../../db_connexion.php");
         VALUES( '$nom' , '$email', '$tel') ";
         $resultats = mysqli_query($connexion, $query);
         if ($resultats) {
-            header("Location: ../studen/add.php");
+            header("Location: ../student/add.php");
             exit;
-            echo "ok";
         } else {
-            echo "erreur";
+            header("Location: ../student/add.php?error=1");
+            exit;
         }
     ?>

@@ -1,3 +1,7 @@
+<?php
+include("../db_connexion.php")
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -14,7 +18,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light position-fixed-top">
         <div class="container-fluid">
             Univsersite Joseph Ki-Zerbo
             <a class="navbar-brand" href="../index.php">
@@ -24,19 +28,32 @@
         </div>
     </nav>
 
+
+    <?php
+    $query = " SELECT * FROM `etudiant` ";
+    $resultats = mysqli_query($connexion, $query);
+    $row = mysqli_fetch_assoc($resultats);
+    ?>
     <div>
 
         <ul class="main-card ">
-            <li class="card li-card my-3">
+
+            <?php
+            while ($row = mysqli_fetch_assoc($resultats)) {
+                $query_tuteur = "SELECT * FROM `tuteur` where id = $row[tutId] ";
+                $resultats_tuteur = mysqli_query($connexion, $query_tuteur);
+                $row_tuteur = mysqli_fetch_assoc($resultats_tuteur);
+                echo '<li class="card li-card my-3">
                 <div class="card-container">
                     <div>
-                        <h5 class="card card-title px-3">Nom Prenom</h5>
+                        <h5 class="card card-title px-3">' . $row["user"] . '</h5>
                     </div>
                     <div>
-                        <h5 class="card text-muted px-3"><small>Naisssance</small></h5>
+                        <h5 class="card text-muted px-3"><small>' . $row["naissance"] . '</small></h5>
                     </div>
                     <div>
-                        <h5 class="card px-3">tuteur :Nom :Prenom :Mail :telephone</h5>
+                        <h5 class="card px-3">tuteur :
+                        '.$row_tuteur ["user"].' '.$row_tuteur["email"].' :'.$row_tuteur["telephone"].'</h5>
                     </div>
                 </div>
                 <div class="option my-3">
@@ -56,37 +73,9 @@
                         </div>
                     </div>
                 </div>
-            </li>
-            <li class="card li-card my-3">
-                <div class="card-container">
-                    <div>
-                        <h5 class="card card-title px-3">Nom Prenom</h5>
-                    </div>
-                    <div>
-                        <h5 class="card text-muted px-3"><small>Naisssance</small></h5>
-                    </div>
-                    <div>
-                        <h5 class="card px-3">tuteur :Nom :Prenom :Mail :telephone</h5>
-                    </div>
-                </div>
-                <div class="option my-3">
-                    <span type="button" class=" my-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#029035" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                        </svg>
-                    </span>
-
-                    <div class="modal fade" id="staticBackdrop">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                                <div type="button" class="option" data-bs-dismiss="modal">Modifier</div>
-                                <br>
-                                <div type="button" class="option">Supprimer</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            </li>';
+            }
+            ?>
         </ul>
     </div>
 
