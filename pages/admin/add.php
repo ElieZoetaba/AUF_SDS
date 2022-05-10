@@ -38,7 +38,6 @@ if (isset($_POST["connecter"])) {
     $user = $_POST["user"];
     $query = " SELECT email , password FROM `admin` 
     WHERE ( email = '$email'  OR user = '$user') AND password='$password' ";
-echo $password;
     $resultats = mysqli_query($connexion, $query);
     $row = mysqli_fetch_assoc($resultats);
 
@@ -47,7 +46,7 @@ echo $password;
         exit;
     }
     else {
-        // header("Location: /sds/index.php?error=2");
+        header("Location: /sds/index.php?error=2");
         exit;
     }
 }
