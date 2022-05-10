@@ -4,7 +4,7 @@ include("../../db_connexion.php");
 
 
 <?php
-$query = "SELECT * FROM     `tuteur` ";
+$query = "SELECT * FROM     `tuteur` ORDER BY `id` DESC";
 $resultats = mysqli_query($connexion, $query);
 ?>
 
@@ -30,21 +30,21 @@ $resultats = mysqli_query($connexion, $query);
             <div class="row">
                 <div class="col-5">
                     <label for="nom"> Nom</label>
-                    <input type="text" name="nom" placeholder="Nom" class="mt-3 p-2 col-6">
+                    <input required type="text" name="nom" placeholder="Nom" class="mt-3 p-2 col-6">
                 </div>
                 <div class="col-6">
                     <label for="prenom"> Prenom</label>
-                    <input type="text" name="prenom" placeholder="prenom" class="mt-3 p-2 col-6">
+                    <input required type="text" name="prenom" placeholder="prenom" class="mt-3 p-2 col-6">
                 </div>
             </div>
             <div class="col">
                 <label for="email"> Email</label> <br>
-                <input type="email" name="email" placeholder="Email" class="mt-3 p-2 ">
+                <input required type="email" name="email" placeholder="Email" class="mt-3 p-2 ">
             </div>
             <label for="naissance">Date de naissance</label></br>
-            <input type="text" name="naissance" onfocus="(this.type='date')" placeholder="Date de naissance" class="mt-3 p-2">
+            <input required type="text" name="naissance" onfocus="(this.type='date')" placeholder="Date de naissance" class="mt-3 p-2">
             <label for="telephone"> Telephone</label>
-            <input type="text" name="telephone" placeholder="Telephone" class="mt-3 p-2"><br>
+            <input required type="text" name="telephone" placeholder="Telephone" class="mt-3 p-2"><br>
             <label for="telephone"> Tuteur</label><br>
             <select type="select" name="tuteur" placeholder="Tuteur" class="mt-3 p-2">
                 <?php
@@ -61,6 +61,8 @@ $resultats = mysqli_query($connexion, $query);
             </div>
         </div>
     </form>
+    <br>
+    <br>
     <div id="tri"></div>
 
     <!-- Modal -->
@@ -74,9 +76,9 @@ $resultats = mysqli_query($connexion, $query);
                 <div class="modal-body">
                     <form action="../tutor/add.php" method="post" class="card container tut-form">
                         <div class="inscription">
-                            <input type="text" name="nom-tuteur" placeholder="Nom & Prenom" class="mt-3 p-2">
-                            <input type="email" name="email-tuteur" placeholder="Email" class="mt-3 p-2">
-                            <input type="text" name="tel-tuteur" placeholder="Telephone " class="mt-3 p-2">
+                            <input required type="text" name="nom-tuteur" placeholder="Nom & Prenom" class="mt-3 p-2">
+                            <input required type="email" name="email-tuteur" placeholder="Email" class="mt-3 p-2">
+                            <input required type="text" name="tel-tuteur" placeholder="Telephone " class="mt-3 p-2">
                             <div class="submit-container">
                                 <input type="submit" name="associer" value="Associer" class="submit mt-3 mb-3  btn">
                             </div>

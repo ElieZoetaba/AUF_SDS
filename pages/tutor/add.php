@@ -9,7 +9,9 @@ include("../../db_connexion.php");
 
         $query = " INSERT INTO `tuteur`  ( user, email , telephone )
         VALUES( '$nom' , '$email', '$tel') ";
-        $resultats = mysqli_query($connexion, $query);
+
+        try {
+            $resultats = mysqli_query($connexion, $query);
         if ($resultats) {
             header("Location: ../student/add.php");
             exit;
@@ -17,4 +19,10 @@ include("../../db_connexion.php");
             header("Location: ../student/add.php?error=1");
             exit;
         }
+    } catch (\Throwable $th) {
+            header("Location: ../student/add.php?error=1");
+            // throw $th;
+
+        }
+        
     ?>
