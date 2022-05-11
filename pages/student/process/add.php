@@ -17,10 +17,11 @@ include("../../../db_connexion.php");
         try {
             $resultats = mysqli_query($connexion, $query);
         if ($resultats) {
-            header("Location: ../../list.php");
+            header("Location: ../../list.php?success=1");
             exit;
         } else {
             echo "erreur";
+            header("Location: ../../list.php?error=1");
         }
         } catch (\Throwable $th) {
             header("Location: ../../list.php?error=2");

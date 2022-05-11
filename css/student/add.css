@@ -33,8 +33,9 @@ select {
   margin: auto;
 }
 
-::placeholder {
-  color: #029035;
+::placeholder,
+input{
+  color: #029035 !important;
 }
 
 .con-ins {

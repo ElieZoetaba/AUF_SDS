@@ -53,7 +53,7 @@ $resultats = mysqli_query($connexion, $query);
             <div class="col">
                 <label for="email"> Email</label> <br>
                 <input required type="email" name="email" placeholder="Email" class="mt-3 p-2 "
-                pattern="[a-z+]{3,250}@[a-z]+\.[a-z]+">
+                pattern="[a-z09+]{3,250}\@[a-z]+\.[a-z]+">
             </div>
             <label for="naissance">Date de naissance</label></br>
             <input required type="text" name="naissance" 

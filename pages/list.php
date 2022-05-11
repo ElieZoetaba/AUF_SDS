@@ -1,6 +1,5 @@
 <?php
-include("../db_connexion.php")
-?>
+include("../db_connexion.php");; ?>
 
 <!doctype html>
 <html lang="en">
@@ -14,7 +13,7 @@ include("../db_connexion.php")
     <link rel="stylesheet" href="../assets/css/all.css">
     <link rel="stylesheet" href="../css/list.css">
     <link rel="stylesheet" href="../assets/css/icons.css">
-    <title>Hello, world!</title>
+    <title>SDS</title>
 </head>
 
 <body>
@@ -27,7 +26,26 @@ include("../db_connexion.php")
             Science De Sante(SDS)
         </div>
     </nav>
-
+    <?php
+    if (isset($_GET["success"])) {
+        echo '
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="../images/main-logo.png" width="50" height="50" class="rounded me-2" alt="...">
+            <strong class="me-auto">Universite Joseph Ki-Zerbo / URF (SDS) </strong>
+            <small>A l\'instant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Felicitation, vous avez ajouter un nouveau etudiant
+          </div>
+        </div>
+      </div>
+    ';
+    } else {
+    }
+    ?>
 
     <?php
     $query = " SELECT * FROM `etudiant` ";
@@ -47,14 +65,21 @@ include("../db_connexion.php")
                 echo '<li class="card li-card my-3">
                 <div class="card-container">
                     <div>
-                        <h5 class="card card-title px-3">' . $row["user"] . '</h5>
+                        <h5 class="card card-title px-3">' . $row["user"] . '  </h5>   
+                        <small  class="fw-lighter">Telephone : ' . $row["telephone"] . '</small>
                     </div>
                     <div>
-                        <h5 class="card text-muted px-3"><small>' . $row["naissance"] . '</small></h5>
+                    <small class="px-3"> Mail : ' . $row["email"] . '</small>
+                    <small class="px-3"> Nee le </small>
+                        <h5 class="card text-muted px-3">' . $row["naissance"] . '</h5>
                     </div>
                     <div>
-                        <h5 class="card px-3">tuteur :
-                        ' . $row_tuteur["user"] . ' ' . $row_tuteur["email"] . ' :' . $row_tuteur["telephone"] . '</h5>
+                        <h5 class="card px-3">tuteur : </h5>
+                        <small>Nom & Prenom</small>
+                        <h5>
+                        ' . $row_tuteur["user"] . ' </h5> Email: <h5>
+                        <a href="mailto:">' . $row_tuteur["email"] .'</a></h5>
+                         <small></small> contacts :<h5>' . $row_tuteur["telephone"] . '</h5>
                     </div>
                 </div>
                 <div class="option my-3">
@@ -71,9 +96,11 @@ include("../db_connexion.php")
                             <div type="button" data-bs-dismiss="modal" class="opt" >Modifier</div>
                             </a>
                             <br>
+                            <div type="button" class="option" class ="opt">
                             <a href="./student/process/delete.php?id=' . $row["id"] . '">  
-                                <div type="button" class="option" class ="opt">Supprimer</div>
+                                Supprimer
                                 </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -92,6 +119,12 @@ include("../db_connexion.php")
         </div>
     </a>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        var toastLiveExample = document.getElementById('liveToast');
+        var toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
+    </script>
 </body>
 
 </html>
