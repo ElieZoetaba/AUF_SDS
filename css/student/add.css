@@ -60,7 +60,7 @@ select {
 .submit, 
 .submit:hover {
   width: 40% !important;
-  margin-left: 7% !important;
+  margin-left: 0 !important;
   background-color: #029035 !important;
   border: 0 !important;
   color: #fff;
