@@ -32,7 +32,7 @@ if (isset($_POST["connecter"])) {
     $password = md5($password);
     $user = $_POST["user"];
     $query = " SELECT email , password FROM `admin` 
-    WHERE ( email = '$email'  OR user = '$user') AND password='$password' ";
+    WHERE ( email = '$user'  OR user = '$user') AND password='$password' ";
     $resultats = mysqli_query($connexion, $query);
     $row = mysqli_fetch_assoc($resultats);
 

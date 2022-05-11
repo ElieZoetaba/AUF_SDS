@@ -30,7 +30,8 @@ li > div:first-child {
   width: 80%;
 }
 
-.modal-content > div {
+.modal-content > div, 
+.opt {
   background-color: #FDE704;
   color: red;
   height: 80px;

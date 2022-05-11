@@ -27,6 +27,17 @@ $resultats = mysqli_query($connexion, $query);
             <span class="con-ins btn-connexion  btn">Ajouter un Etudiant</span>
         </div>
         <div class="inscription">
+            <label for="telephone">Selectionner le Tuteur</label><br>
+            <select type="select" name="tuteur" placeholder="Tuteur" class="mt-3 p-2">
+                <?php
+                while ($row = mysqli_fetch_assoc($resultats)) {
+                    echo "<option value='$row[id] '> $row[user] ($row[telephone])</option>";
+                }
+                ?>
+            </select>
+            <div type="button" class="btn-container-tut my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <span class="con-ins  btn">Nouveau Tuteur</span>
+            </div>
             <div class="row">
                 <div class="col-5">
                     <label for="nom"> Nom</label>
@@ -45,17 +56,6 @@ $resultats = mysqli_query($connexion, $query);
             <input required type="text" name="naissance" onfocus="(this.type='date')" placeholder="Date de naissance" class="mt-3 p-2">
             <label for="telephone"> Telephone</label>
             <input required type="text" name="telephone" placeholder="Telephone" class="mt-3 p-2"><br>
-            <label for="telephone"> Tuteur</label><br>
-            <select type="select" name="tuteur" placeholder="Tuteur" class="mt-3 p-2">
-                <?php
-                while ($row = mysqli_fetch_assoc($resultats)) {
-                    echo "<option value='$row[id] '> $row[user] </option>";
-                }
-                ?>
-            </select>
-            <div type="button" class="btn-container-tut my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <span class="con-ins  btn">Ajouter Tuteur</span>
-            </div>
             <div class="submit-container">
                 <input type="submit" name="enregistrer" value="Enregistrer" class="submit mt-3 mb-3  btn">
             </div>

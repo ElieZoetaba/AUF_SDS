@@ -32,7 +32,8 @@ include("../db_connexion.php")
     <?php
     $query = " SELECT * FROM `etudiant` ";
     $resultats = mysqli_query($connexion, $query);
-    $row = mysqli_fetch_assoc($resultats);
+    // $row = mysqli_fetch_assoc($resultats);
+    // print_r($row);
     ?>
     <div>
 
@@ -53,7 +54,7 @@ include("../db_connexion.php")
                     </div>
                     <div>
                         <h5 class="card px-3">tuteur :
-                        '.$row_tuteur ["user"].' '.$row_tuteur["email"].' :'.$row_tuteur["telephone"].'</h5>
+                        ' . $row_tuteur["user"] . ' ' . $row_tuteur["email"] . ' :' . $row_tuteur["telephone"] . '</h5>
                     </div>
                 </div>
                 <div class="option my-3">
@@ -66,9 +67,13 @@ include("../db_connexion.php")
                     <div class="modal fade" id="staticBackdrop">
                         <div class="modal-dialog modal-sm">
                             <div class="modal-content">
-                                <div type="button" class="option" data-bs-dismiss="modal">Modifier</div>
-                                <br>
-                                <div type="button" class="option">Supprimer</div>
+                            <a href="./student/alter.php?id=' . $row["id"] . '">  
+                            <div type="button" data-bs-dismiss="modal" class="opt" >Modifier</div>
+                            </a>
+                            <br>
+                            <a href="./student/process/delete.php?id=' . $row["id"] . '">  
+                                <div type="button" class="option" class ="opt">Supprimer</div>
+                                </a>
                             </div>
                         </div>
                     </div>

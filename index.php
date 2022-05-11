@@ -1,3 +1,11 @@
+<?php
+include("./db_connexion.php");
+
+$query = "SELECT * FROM `admin`";
+$resultats = mysqli_query($connexion, $query);
+$row = mysqli_fetch_assoc($resultats);
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -11,7 +19,7 @@
     <link rel="stylesheet" href="./css/style.css">
 
 
-    <title>Hello, world!</title>
+    <title>SDS</title>
 </head>
 
 <body>
@@ -20,8 +28,15 @@
         <img src="./images/main-logo.png" alt="logo">
 
         <div class="btn-container">
-            <span class="con-ins btn-connexion  btn">Connexion</span> <span class="greeny"> /</span>
-            <span class="con-ins btn-inscription  btn">Inscription</span>
+            <span class="con-ins btn-connexion  btn">Connexion</span>
+            <?php 
+            if(!$row){
+                echo '
+            <span class="greeny"> /</span>
+
+            <span class="con-ins btn-inscription  btn">Inscription</span>';
+            }
+            ?>
         </div>
 
         <div class="inscription">
