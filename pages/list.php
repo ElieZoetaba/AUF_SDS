@@ -64,6 +64,23 @@ include("../db_connexion.php");; ?>
       </div>
     ';
         }
+        if ($_GET["success"] == 3) {
+
+            echo '
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="../images/main-logo.png" width="50" height="50" class="rounded me-2" alt="...">
+            <strong class="me-auto">Universite Joseph Ki-Zerbo / URF (SDS) </strong>
+            <small>A l\'instant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Suppression Reussie ! </div>
+        </div>
+      </div>
+    ';
+        }
     }
 
 
@@ -99,42 +116,42 @@ include("../db_connexion.php");; ?>
                 $query_tuteur = "SELECT * FROM `tuteur` where id = $row[tutId] ";
                 $resultats_tuteur = mysqli_query($connexion, $query_tuteur);
                 $row_tuteur = mysqli_fetch_assoc($resultats_tuteur);
-                echo '<li class="card li-card my-3">
-                <div class="card-container">
+                echo "<li class='card li-card my-3'>
+                <div class='card-container'>
                     <div>
-                        <h5 class="card card-title px-3">' . $row["user"] . '  </h5>   
-                        <small  class="fw-lighter">Telephone : ' . $row["telephone"] . '</small>
+                        <h5 class='card card-title px-3'>$row[user]</h5>   
+                        <small  class='fw-lighter'>Telephone :$row[telephone]</small>
                     </div>
                     <div>
-                    <small class="px-3"> Mail : ' . $row["email"] . '</small>
-                    <small class="px-3"> Nee le </small>
-                        <h5 class="card text-muted px-3">' . $row["naissance"] . '</h5>
+                    <small class='px-3'> Mail : $row[email]</small>
+                    <small class='px-3'> Nee le </small>
+                        <h5 class='card text-muted px-3'>$row[naissance]</h5>
                     </div>
                     <div>
-                        <h5 class="card px-3">tuteur : </h5>
+                        <h5 class='card px-3'>tuteur : </h5>
                         <small>Nom & Prenom</small>
                         <h5>
-                        ' . $row_tuteur["user"] . ' </h5> Email: <h5>
-                        <a href="mailto:">' . $row_tuteur["email"] . '</a></h5>
-                         <small></small> contacts :<h5>' . $row_tuteur["telephone"] . '</h5>
+                        $row_tuteur[user]</h5> Email: <h5>
+                        <a href='mailto:'>$row_tuteur[email]</a></h5>
+                          contacts :<h5>$row_tuteur[telephone]</h5>
                     </div>
                 </div>
-                <div class="option my-3">
-                    <span type="button" class=" my-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#029035" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                <div class='option my-3'>
+                    <span type='button' class='my-3' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' fill='#029035' class='bi bi-three-dots-vertical' viewBox='0 0 16 16'>
+                            <path d='M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z' />
                         </svg>
                     </span>
 
-                    <div class="modal fade" id="staticBackdrop">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                            <a href="./student/alter.php?id=' . $row["id"] . '">  
-                            <div type="button" data-bs-dismiss="modal" class="opt" >Modifier</div>
+                    <div class='modal fade' id='staticBackdrop'>
+                        <div class='modal-dialog modal-sm'>
+                            <div class='modal-content'>
+                            <a href='./student/alter.php?id=$row[id]'>  
+                            <div type='button' data-bs-dismiss='modal' class='opt' >Modifier</div>
                             </a>
                             <br>
-                            <div type="button" class="option" class ="opt">
-                            <a href="./student/process/delete.php?id=' . $row["id"] . '">  
+                            <div type='button' class='option opt'>
+                            <a href='' onclick='confirmation()' class='cnf'>  
                                 Supprimer
                                 </a>
                                 </div>
@@ -142,8 +159,9 @@ include("../db_connexion.php");; ?>
                         </div>
                     </div>
                 </div>
-            </li>';
+            </li>";
             }
+
             ?>
         </ul>
     </div>
@@ -161,6 +179,16 @@ include("../db_connexion.php");; ?>
         var toastLiveExample = document.getElementById('liveToast');
         var toast = new bootstrap.Toast(toastLiveExample)
         toast.show()
+
+
+        function confirmation() {
+            let ret = confirm("Voulez vous vraiment suppriment cet etudiant ? ");
+            if (ret) {
+                let a_tag = document.querySelector(".cnf");
+                a_tag.getAttribute("href");
+                a_tag.setAttribute("href", './student/process/delete.php?id=$row[id]');
+            }
+        }
     </script>
 </body>
 

@@ -14,7 +14,7 @@ body {
   border-bottom-right-radius: 20px;
 }
 
-img {
+.logo {
   height: 200px;
   object-fit: contain;
   margin: auto;
@@ -22,7 +22,7 @@ img {
 
 input:hover,
 select:hover,
-input, 
+input,
 select {
   background-color: inherit;
   border-width: 1px !important;
@@ -34,12 +34,12 @@ select {
 }
 
 ::placeholder,
-input, 
-option, 
-select{
+input,
+option,
+select {
   color: #029035 !important;
 }
-input[type="submit"]{
+input[type="submit"] {
   color: #fff !important;
 }
 .con-ins {
@@ -62,7 +62,7 @@ input[type="submit"]{
   left: 0 !important;
 }
 
-.submit, 
+.submit,
 .submit:hover {
   width: 40% !important;
   margin-left: 0 !important;

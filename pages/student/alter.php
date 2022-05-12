@@ -43,9 +43,10 @@ $row_tuteur = mysqli_fetch_assoc($resultat_tuteur);
 
 <body>
     <form action="../student/process/alter.php?id=<?php echo $row_etudiant['id']; ?>" method="post" class="card container admin-form">
-        <img src="../../images/main-logo.png" alt="logo">
+        <img src="../../images/main-logo.png" alt="logo" height="200" width="200" style="margin:auto;">
         <div class="btn-container">
-            <span class="con-ins btn-connexion  btn">Ajouter un Etudiant</span>
+            <span class="con-ins btn-connexion  btn">Modifier L'etudiant <?php echo $row_etudiant['user'];
+                                                                            ?></span>
         </div>
         <div class="inscription">
             <label for="nom"> Nom & Prenom</label>

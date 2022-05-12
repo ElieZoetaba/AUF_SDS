@@ -17,7 +17,7 @@ include("../../../db_connexion.php");
         try {
             $resultats = mysqli_query($connexion, $query);
         if ($resultats) {
-            header("Location: ../../list.php?success=2");
+            header("Location: ../../list.php?success=1");
             exit;
         } else {
             echo "erreur";

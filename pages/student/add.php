@@ -62,7 +62,7 @@ if (isset($_GET["error"])) {
 
 <body>
     <form action="../student/process/add.php" method="post" class="card container admin-form">
-        <img src="../../images/main-logo.png" alt="logo">
+        <img src="../../images/main-logo.png" alt="logo" class="logo">
         <div class="btn-container">
             <span class="con-ins btn-connexion  btn">Ajouter un Etudiant</span>
         </div>
