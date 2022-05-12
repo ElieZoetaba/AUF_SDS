@@ -5,20 +5,16 @@ include("../../db_connexion.php");
 
 <?php
 if (isset($_GET["id"])) {
-
-
-    $id = $_GET["id"];
-
+   $id = $_GET["id"];
     $query = "SELECT * FROM `etudiant` WHERE id= $id";
     $resultat = mysqli_query($connexion, $query);
     $row_etudiant = mysqli_fetch_assoc($resultat);
 }
 ?>
 
-
 <?php
 //  Fetch all tutors from database
-$query_all_tutors = "SELECT * FROM     `tuteur` ORDER BY `id` DESC";
+$query_all_tutors = "SELECT * FROM `tuteur` ORDER BY `id` DESC";
 $resultats_tutors = mysqli_query($connexion, $query_all_tutors);
 ?>
 

@@ -151,7 +151,7 @@ include("../db_connexion.php");; ?>
                             </a>
                             <br>
                             <div type='button' class='option opt'>
-                            <a href='' onclick='confirmation()' class='cnf'>  
+                            <a href='#' onclick='confirmation()' class='cnf'> 
                                 Supprimer
                                 </a>
                                 </div>
@@ -159,10 +159,24 @@ include("../db_connexion.php");; ?>
                         </div>
                     </div>
                 </div>
-            </li>";
+            </li>
+            
+            <script>
+            var toastLiveExample = document.getElementById('liveToast');
+            var toast = new bootstrap.Toast(toastLiveExample)
+            toast.show()
+             function confirmation() {
+                let ret = confirm('Voulez vous vraiment suppriment cet etudiant ? ');
+                if (ret) {
+                    let a_tag = document.querySelector('.cnf');
+                    a_tag.getAttribute('href');
+                    a_tag.setAttribute('href', './student/process/delete.php?id=$row[id] ');
+                }
             }
-
-            ?>
+        </script>
+            
+            ";
+            } ?>
         </ul>
     </div>
 
@@ -175,21 +189,7 @@ include("../db_connexion.php");; ?>
     </a>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        var toastLiveExample = document.getElementById('liveToast');
-        var toast = new bootstrap.Toast(toastLiveExample)
-        toast.show()
 
-
-        function confirmation() {
-            let ret = confirm("Voulez vous vraiment suppriment cet etudiant ? ");
-            if (ret) {
-                let a_tag = document.querySelector(".cnf");
-                a_tag.getAttribute("href");
-                a_tag.setAttribute("href", './student/process/delete.php?id=$row[id]');
-            }
-        }
-    </script>
 </body>
 
 </html>
