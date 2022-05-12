@@ -18,7 +18,7 @@ $query = "UPDATE `etudiant` SET id=$id,
 echo $query;
 $resultats = mysqli_query($connexion, $query);
 if ($resultats) {
-    header("Location: /sds/pages/list.php?success=1");
+    header("Location: /sds/pages/list.php?success=2");
 } else {
     header("Location: /sds/pages/student/alter.php?id=$id&error=1");
 }

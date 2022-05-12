@@ -13,7 +13,7 @@ include("../../db_connexion.php");
         try {
             $resultats = mysqli_query($connexion, $query);
         if ($resultats) {
-            header("Location: ../student/add.php");
+            header("Location: ../student/add.php?success=1");
             exit;
         } else {
             header("Location: ../student/add.php?error=1");

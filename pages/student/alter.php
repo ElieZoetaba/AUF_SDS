@@ -24,10 +24,10 @@ $resultats_tutors = mysqli_query($connexion, $query_all_tutors);
 
 <?php
 //  Fetch a tutor based on student's tutor id
-    $query_tuteur = "SELECT * FROM     `tuteur` WHERE  `id` = $row_etudiant[tutId]";
-    $resultat_tuteur = mysqli_query($connexion, $query_tuteur);
-    $row_tuteur = mysqli_fetch_assoc($resultat_tuteur);
-    ?>
+$query_tuteur = "SELECT * FROM     `tuteur` WHERE  `id` = $row_etudiant[tutId]";
+$resultat_tuteur = mysqli_query($connexion, $query_tuteur);
+$row_tuteur = mysqli_fetch_assoc($resultat_tuteur);
+?>
 
 <!doctype html>
 <html lang="en">
@@ -42,29 +42,33 @@ $resultats_tutors = mysqli_query($connexion, $query_all_tutors);
 </head>
 
 <body>
-    <form action="../student/process/alter.php?id=<?php echo$row_etudiant['id'] ;?>" 
-    method="post" class="card container admin-form">
+    <form action="../student/process/alter.php?id=<?php echo $row_etudiant['id']; ?>" method="post" class="card container admin-form">
         <img src="../../images/main-logo.png" alt="logo">
         <div class="btn-container">
             <span class="con-ins btn-connexion  btn">Ajouter un Etudiant</span>
         </div>
         <div class="inscription">
             <label for="nom"> Nom & Prenom</label>
-            <input required type="text" name="nom" value="<?php echo $row_etudiant['user']; ?>" placeholder="Nom" class="mt-3 p-2 col-6">
+            <input required type="text" name="nom" value="<?php echo $row_etudiant['user'];
+                                                            ?>" placeholder="Nom" class="mt-3 p-2 col-6">
             <div class="col">
                 <label for="email"> Email</label> <br>
-                <input required type="email" value="<?php echo $row_etudiant['email']; ?>" name="email" placeholder="Email" class="mt-3 p-2 ">
+                <input required type="email" value="<?php echo $row_etudiant['email'];
+                                                    ?>" name="email" placeholder="Email" class="mt-3 p-2 ">
             </div>
             <label for="naissance">Date de naissance</label></br>
-            <input required type="text" name="naissance" value="<?php echo $row_etudiant['naissance']; ?>" onfocus="(this.type='date')" placeholder="Date de naissance" class="mt-3 p-2">
+            <input required type="text" name="naissance" value="<?php echo $row_etudiant['naissance'];
+                                                                ?>" onfocus="(this.type='date')" placeholder="Date de naissance" class="mt-3 p-2">
             <label for="telephone"> Telephone</label>
-            <input required type="text" name="telephone" value="<?php echo $row_etudiant['telephone']; ?>" placeholder="Telephone" class="mt-3 p-2"><br>
+            <input required type="text" name="telephone" value="<?php echo $row_etudiant['telephone'];
+                                                                ?>" placeholder="Telephone" class="mt-3 p-2"><br>
             <label for="telephone"> Tuteur</label><br>
             <select type="select" name="tuteurId" placeholder="Tuteur" class="mt-3 p-2">
-                <option value="<?php echo $row_tuteur['id']; ?>"><?php echo $row_tuteur['user']; ?></option>
+                <option value="<?php echo $row_tuteur['id']; ?>"><?php echo $row_tuteur['user'];
+                                                                    echo " ($row_tuteur[telephone])"; ?></option>
                 <?php
                 while ($row = mysqli_fetch_assoc($resultats_tutors)) {
-                    echo "<option value='$row[id] '> $row[user] </option>";
+                    echo "<option value='$row[id] '> $row[user] ($row[telephone])</option>";
                 }
                 ?>
             </select>
@@ -79,4 +83,5 @@ $resultats_tutors = mysqli_query($connexion, $query_all_tutors);
 
     <script src="../../assets/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

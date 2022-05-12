@@ -28,7 +28,9 @@ include("../db_connexion.php");; ?>
     </nav>
     <?php
     if (isset($_GET["success"])) {
-        echo '
+        if ($_GET["success"] == 1) {
+
+            echo '
         <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="toast-header">
@@ -43,15 +45,50 @@ include("../db_connexion.php");; ?>
         </div>
       </div>
     ';
-    } else {
+        }
+
+        if ($_GET["success"] == 2) {
+
+            echo '
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="../images/main-logo.png" width="50" height="50" class="rounded me-2" alt="...">
+            <strong class="me-auto">Universite Joseph Ki-Zerbo / URF (SDS) </strong>
+            <small>A l\'instant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Felicitation, Infos de l\'etudiant Changees</div>
+        </div>
+      </div>
+    ';
+        }
+    }
+
+
+    if (isset($_GET["error"])) {
+        echo '
+            <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="../images/main-logo.png" width="50" height="50" class="rounded me-2" alt="...">
+                <strong class="me-auto">Universite Joseph Ki-Zerbo / URF (SDS) </strong>
+                <small>A l\'instant</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body bg-danger">
+                Echec lors de l\'ajout de l\'etudiant
+              </div>
+            </div>
+          </div>
+        ';
     }
     ?>
 
     <?php
     $query = " SELECT * FROM `etudiant` ";
     $resultats = mysqli_query($connexion, $query);
-    // $row = mysqli_fetch_assoc($resultats);
-    // print_r($row);
     ?>
     <div>
 
@@ -78,7 +115,7 @@ include("../db_connexion.php");; ?>
                         <small>Nom & Prenom</small>
                         <h5>
                         ' . $row_tuteur["user"] . ' </h5> Email: <h5>
-                        <a href="mailto:">' . $row_tuteur["email"] .'</a></h5>
+                        <a href="mailto:">' . $row_tuteur["email"] . '</a></h5>
                          <small></small> contacts :<h5>' . $row_tuteur["telephone"] . '</h5>
                     </div>
                 </div>

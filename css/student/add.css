@@ -34,10 +34,14 @@ select {
 }
 
 ::placeholder,
-input{
+input, 
+option, 
+select{
   color: #029035 !important;
 }
-
+input[type="submit"]{
+  color: #fff !important;
+}
 .con-ins {
   border: 0;
   background-color: #029035;

@@ -4,7 +4,7 @@ include("../../db_connexion.php");
 
 
 <?php
-$query = "SELECT * FROM     `tuteur` ORDER BY `id` DESC";
+$query = "SELECT * FROM  `tuteur` ORDER BY `id` DESC";
 $resultats = mysqli_query($connexion, $query);
 ?>
 
@@ -19,6 +19,46 @@ $resultats = mysqli_query($connexion, $query);
     <link rel="stylesheet" href="../../css/student/add.css">
     <title>Hello, world!</title>
 </head>
+
+<?php
+if (isset($_GET["success"])) {
+    if ($_GET["success"] == 1) {
+        echo '
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="../../images/main-logo.png" width="50" height="50" class="rounded me-2" alt="...">
+                    <strong class="me-auto">Universite Joseph Ki-Zerbo / URF (SDS) </strong>
+                    <small>A l\'instant</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Felicitation, vous avez ajouter un nouveau Tuteur
+                </div>
+        </div>
+      </div>
+    ';
+    }
+}
+
+if (isset($_GET["error"])) {
+    echo '
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="../../images/main-logo.png" width="50" height="50" class="rounded me-2" alt="...">
+            <strong class="me-auto">Universite Joseph Ki-Zerbo / URF (SDS) </strong>
+            <small>A l\'instant</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body bg-danger">
+            Echec lors de l\'ajout du Tuteur
+          </div>
+        </div>
+      </div>
+    ';
+}
+?>
 
 <body>
     <form action="../student/process/add.php" method="post" class="card container admin-form">
@@ -41,30 +81,23 @@ $resultats = mysqli_query($connexion, $query);
             <div class="row">
                 <div class="col-5">
                     <label for="nom"> Nom</label>
-                    <input required type="text" name="nom" placeholder="Nom" class="mt-3 p-2 col-6"
-                    pattern="[a-zAz+]{2,56}">
+                    <input required type="text" name="nom" placeholder="Nom" class="mt-3 p-2 col-6">
                 </div>
                 <div class="col-6">
                     <label for="prenom"> Prenom</label>
-                    <input required type="text" name="prenom" placeholder="prenom" class="mt-3 p-2 col-6" 
-                    pattern="[a-zAz+]{3,250}">
+                    <input required type="text" name="prenom" placeholder="prenom" class="mt-3 p-2 col-6">
                 </div>
             </div>
             <div class="col">
                 <label for="email"> Email</label> <br>
-                <input required type="email" name="email" placeholder="Email" class="mt-3 p-2 "
-                pattern="[a-z09+]{3,250}\@[a-z]+\.[a-z]+">
+                <input required type="email" name="email" placeholder="Email" class="mt-3 p-2 ">
             </div>
             <label for="naissance">Date de naissance</label></br>
-            <input required type="text" name="naissance" 
-            onfocus="(this.type='date')" placeholder="Date de naissance" class="mt-3 p-2">
+            <input required type="text" name="naissance" onfocus="(this.type='date')" placeholder="Date de naissance" class="mt-3 p-2">
             <label for="telephone"> Telephone</label>
-            <input required pattern="[1-9]{8,2}" type="text" name="telephone" 
-            placeholder="Telephone" class="mt-3 p-2"><br>
+            <input required type="text" name="telephone" placeholder="Telephone" class="mt-3 p-2"><br>
             <div class="submit-container">
-                <input type="submit" name="enregistrer" value="Enregistrer" class="submit mt-3 mb-3  btn"
-                style="margin-left: 0 !important;"
-                >
+                <input type="submit" name="enregistrer" value="Enregistrer" class="submit mt-3 mb-3  btn" style="margin-left: 0 !important;">
             </div>
         </div>
     </form>
@@ -97,11 +130,11 @@ $resultats = mysqli_query($connexion, $query);
     </div>
 
     <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var toastLiveExample = document.getElementById('liveToast');
+        var toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
+    </script>
 </body>
-
-
-
-
-
 
 </html>
